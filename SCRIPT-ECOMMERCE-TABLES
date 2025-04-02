@@ -33,8 +33,8 @@ create table product(
                              
 -- select * from payments;
 create table payments(
-	  idClient int,
-    idPayment int,
+	idClient int,
+    idPayment int auto_increment,
     typePayment enum('Boleto','Cartão','Dois cartões'),
     limitAvailable float,
 	  primary key(idClient, idPayment)
@@ -65,7 +65,7 @@ create table productStorage(
 create table supplier(
 	idSupplier int auto_increment primary key,
     SocialName varchar(255) not null,
-    CNPJ char(15) not null,
+    CNPJ char(14) not null,
     contact char(11) not null,
     constraint unique_supplier unique (CNPJ)
 );
@@ -76,8 +76,8 @@ create table seller(
 	idSeller int auto_increment primary key,
     SocialName varchar(255) not null,
     AbsName varchar(255),
-    CNPJ char(15),
-    CPF char(9),
+    CNPJ char(14),
+    CPF char(11),
     location varchar(255),
     contact char(11) not null,
     constraint unique_cnpj_seller unique (CNPJ),
