@@ -33,11 +33,11 @@ create table product(
                              
 -- select * from payments;
 create table payments(
-	idClient int,
-    idPayment int auto_increment,
+	idPayment int auto_increment primary key,
+    idClient int,
     typePayment enum('Boleto','Cartão','Dois cartões'),
     limitAvailable float,
-	  primary key(idClient, idPayment)
+	constraint fk_payments_client foreign key (idClient) references clients(idClient)
 
 );
 
